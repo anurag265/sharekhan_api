@@ -28,9 +28,9 @@ def get_historical_data(symbol, scripcode, exchange, interval):
     """
     try:
         # Get historical data from Sharekhan API
-        order = sharekhan.historicaldata(exchange, scripcode, interval)
-        print(f"Historical Data for {symbol}: {order}")
-        return order
+        response = sharekhan.historicaldata(exchange, scripcode, interval)
+        print(f"Historical Data for {symbol}: {response}")
+        return response
     except Exception as e:
         print(f"An error occurred for {symbol}: {e}")
         return None
