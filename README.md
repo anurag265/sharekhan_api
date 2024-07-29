@@ -16,6 +16,15 @@ This project consists of a series of Python scripts designed to fetch, process, 
 
 - Python 3.x
 
+## Cloning the Project
+
+To clone the project from GitHub, use the following command:
+
+```sh
+git clone https://github.com/anurag265/sharekhan_api.git
+cd sharekhan_api
+```
+
 Make sure you have the required Python packages installed. You can install them using the provided `requirements.txt` file:
 
 ```sh
