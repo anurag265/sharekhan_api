@@ -16,7 +16,7 @@ This project consists of a series of Python scripts designed to fetch, process, 
 
 - Python 3.x
 
-Make sure you have the required Python packages installed. You can install them using pip:
+Make sure you have the required Python packages installed. You can install them using the provided `requirements.txt` file:
 
 ```sh
 pip install -r requirements.txt
@@ -97,6 +97,40 @@ To run the entire pipeline, execute the scripts in the following order:
 8. `consolidate_analysis.py`
 
 This will fetch, process, and analyze the stock data, resulting in a consolidated analysis Excel file containing the relevant stock data insights.
+
+## Common Issues
+
+### ModuleNotFoundError: No module named 'Crypto'
+
+If you encounter the following error:
+
+```
+---------------------------------------------------------------------------
+ModuleNotFoundError                       Traceback (most recent call last)
+Cell In[15], line 17
+     15 # Generate session and access token
+     16 if version_id:
+---> 17     session = login.generate_session(request_token, secret_key)
+     18     access_token_response = login.get_access_token(api_key, session, state, versionId=version_id)
+     19 else:
+
+File ~\AppData\Local\Programs\Python\Python312\Lib\site-packages\SharekhanApi\sharekhanConnect.py:242, in SharekhanConnect.generate_session(self, request_token, secret_key)
+    241     import base64
+--> 242     from Crypto.Cipher import AES
+    243     from Crypto.Util.Padding import pad
+    244     from cryptography.hazmat.backends import default_backend
+
+ModuleNotFoundError: No module named 'Crypto'
+```
+
+You can resolve it by uninstalling conflicting packages and reinstalling `pycryptodome`:
+
+```sh
+pip uninstall crypto
+pip uninstall pycryptodome
+pip uninstall pycrypto
+pip install pycryptodome
+```
 
 ## License
 
